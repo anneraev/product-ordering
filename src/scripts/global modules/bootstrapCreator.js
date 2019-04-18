@@ -7,6 +7,9 @@ export default {
         const container = htmlBuilder.elementBuilder(type, id);
         container.classList.add("container");
     },
+    createPaddedContainer: function (type, id, width, breakpoint, x) {
+        const container = this.createContainer(type, id);
+    },
     createFluidContainer: function (type, id) {
         const container = htmlBuilder.elementBuilder(type, id);
         container.classList.add("container-fluid");
@@ -21,19 +24,11 @@ export default {
     },
     createColumn: function (type, id, content, value, width) {
         const column = htmlBuilder.elementBuilder(type, id, content, value);
-        if (width && typeof width === "number") {
             column.classList.add(`col-${width}`)
-        } else {
-            column.classList.add("col")
-        }
     },
     //creates colum that starts out stacked and then becomes horizontal ath the specified breakpoint width.
     createBreakColumn: function (type, id, content, value, width, breakpoint) {
-        const column = htmlBuilder.elementBuilder(type, id, content, value);
-        if (breakpoint && breakpoint === ("sm" || "md" || "lg")) {
+        const column = this.createColumn(type, id, content, value, width, breakpoint)
             column.classList.add(`col-${breakpoint}-${width}`)
-        } else {
-            column.classList.add(`col-sm-${width}`)
-        }
     },
 }
