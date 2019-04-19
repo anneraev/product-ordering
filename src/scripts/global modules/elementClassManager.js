@@ -37,9 +37,10 @@ let elementsObject
 let elementsList
 
 export default {
-    createElementsObject: function (elements) {
+    buildElementsObject: function (elements) {
         this.clearElementsObject();
         elementsObject = new elementsObject(elements);
+        return elementsObject;
     },
     clearElementsObject: function (){
         elementsObject = "";

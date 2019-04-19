@@ -2,6 +2,7 @@ import htmlBuilder from "../htmlBuilder"
 import elementClassManager from "../elementClassManager";
 //creates HTML with bootstrap classes by calling the HTML builder and assigning the necessary classes.
 //normally called by boostrapManager in order to create complicated boostrap configurations.
+//Because of the larg list of components and other utilities, those will be added here as needed for the time being.
 export default {
     //create bootstrap container.
     createContainer: function (type, id) {
@@ -32,9 +33,13 @@ export default {
         elementClassManager.elementsList.add(equal);
         return equal;
     },
-    createColumn: function (type, id, content, value, width) {
+    createColumn: function (type, id, content, value, width, size) {
         const column = htmlBuilder.elementBuilder(type, id, content, value);
-        column.classList.add(`col-${width}`)
+        if (size) {
+            column.classList.add(`col-${size}-${width}`)
+        } else {
+            column.classList.add(`col-${width}`)
+        }
         this.addOptionsMethods(column);
         elementClassManager.elementsList.add(column);
         return column;
@@ -42,15 +47,25 @@ export default {
     //creates colum that starts out stacked and then becomes horizontal ath the specified breakpoint width.
     createBreakColumn: function (type, id, content, value, width, breakpoint) {
         const column = this.createColumn(type, id, content, value, width, breakpoint)
-            column.classList.add(`col-${breakpoint}-${width}`)
-            return column;
+        column.classList.add(`col-${breakpoint}-${width}`)
+        this.addOptionsMethods(column);
+        elementClassManager.elementsList.add(column);
+        return column;
     },
     //adds methods as attributes to the DOM object.
-    addOptionsMethods: function (element){
+    addOptionsMethods: function (element) {
         element.addBorder = this.addBorder;
         element.addBackGround = this.addBackGround;
         element.addPadding = this.addPadding;
         element.addMargin = this.addMargin;
+        element.alignItems = this.alignItems;
+        element.alignSelf = this.alignSelf;
+        element.justifyItems = this.justifyItems;
+        element.justifySelf = this.justifySelf;
+        element.order = this.order;
+        element.automargin = this.automargin;
+        element.visible = this.visible;
+        element.invisible = this.invisible;
     },
     addBorder: function () {
         this.classList.add("border");
@@ -58,17 +73,47 @@ export default {
     addBackGround: function (shade) {
         this.classList.add(`${shade}`)
     },
-    addPadding: function (coord, breakpoint, width) {
-        this.classList.add(`p${coord}-${breakpoint}-${width}`)
+    addPadding: function (coord, width, breakpoint) {
+        if (breakpoint) {
+            this.classList.add(`p${coord}-${breakpoint}-${width}`)
+        } else {
+            this.classList.add(`p${coord}--${width}`)
+        }
     },
-    addMargin: function (coord, breakpoint, width){
-        this.classList.add(`m${coord}-${breakpoint}-${width}`)
+    addMargin: function (coord, width, breakpoint) {
+        if (breakpoint) {
+            this.classList.add(`m${coord}-${breakpoint}-${width}`)
+        } else {
+            this.classList.add(`m${coord}--${width}`)
+        }
     },
     alignItems: function (direction) {
         this.classList.add(`align-items-${direction}`)
     },
     alignSelf: function (direction) {
-        this.classList.add(`align-items-${direction}`)
-    }
-
+        this.classList.add(`align-self-${direction}`)
+    },
+    justifyItems: function (direction) {
+        this.classList.add(`justify-items-${direction}`)
+    },
+    justifySelf: function (direction) {
+        this.classList.add(`justify-self-${direction}`)
+    },
+    order: function (mod) {
+        this.classList.add(`order-${mod}`);
+    },
+    offset: function (size, number) {
+        this.classList.add(`offset-${size}-${number}`)
+    },
+    automargin: function (direction) {
+        this.classList.add(`m${direction}-auto`)
+    },
+    visible: function () {
+        this.classList.add("visible");
+        this.classList.remove("invisible");
+    },
+    invisible: function () {
+        this.classList.add("invisible");
+        this.classList.remove("visible");
+    },
 }
