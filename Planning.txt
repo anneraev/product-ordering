@@ -1,0 +1,16 @@
+- Display individual product component.
+    -Title.
+    -Description.
+    -Price.
+    -Quantity.
+    -Image.
+    (Product Data will keep track of these various bits of information, Product List will create the list, and product.js will communicate between them and other modules.)
+- Application Nav Bar.
+    -Name of company: Betsy
+    -Three Links:
+        -Categories
+        -Orders
+        -Log Out
+        (navBar.js will handle displaying these elements, which are just for show in this exercise.)
+- Reviews
+    -Maximum of three reviews. (Review Data: Refrence to Product, Reference to User, review. Tracked by Review List. Review.js will communicate between them and and other modules.)
