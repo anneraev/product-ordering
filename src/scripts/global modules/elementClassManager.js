@@ -1,7 +1,9 @@
 //creates an object with selected elements, allows for easy class editing among other features.
 
+let assembledElementsObject
+
 //the element object created here contains easy references for each element.
-elementsObject = function (elements) {
+const elementsObject = function (elements) {
     elements.forEach(element => {
         const id = element.id;
         const idArray = id.split("--");
@@ -33,17 +35,16 @@ elementsObject = function (elements) {
     }
 }
 
-let elementsObject
-let elementsList
+let elementsList = [];
 
 export default {
     buildElementsObject: function (elements) {
         this.clearElementsObject();
-        elementsObject = new elementsObject(elements);
+        assembledElementsObject = new elementsObject(elements);
         return elementsObject;
     },
     clearElementsObject: function (){
-        elementsObject = "";
+        assembledElementsObject = "";
     },
     elementsList: {
         add: function (element){

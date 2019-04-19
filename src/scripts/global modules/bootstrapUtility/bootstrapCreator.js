@@ -52,6 +52,17 @@ export default {
         elementClassManager.elementsList.add(column);
         return column;
     },
+    createCard: function (type, id) {
+        const card = htmlBuilder.elementBuilder(type, id)
+        card.classList.add("card");
+        this.addOptionsMethods(card)
+        const cardBody = htmlBuilder.elementBuilder(type, id)
+        cardBody.classList.add("card-body");
+        this.addOptionsMethods(cardBody);
+        card.appendChild(cardBody);
+        elementClassManager.elementsList.add(card);
+        return card;
+    },
     //adds methods as attributes to the DOM object.
     addOptionsMethods: function (element) {
         element.addBorder = this.addBorder;

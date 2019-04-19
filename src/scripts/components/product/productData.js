@@ -1,12 +1,8 @@
+import apiManager from "../../global modules/apiManager";
+import productList from "./productList";
+
 export default {
-    createProduct: function (title, price, description, quantity, image) {
-        product = {
-            "title": title,
-            "price": price,
-            "description": description,
-            "quantity": quantity,
-            "image": image
-        }
-        return product
+    getProducts: function (){
+        apiManager.getAll("products").then(products => productList.listProducts(products));
     }
 }
