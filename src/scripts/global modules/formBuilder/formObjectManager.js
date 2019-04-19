@@ -55,7 +55,6 @@ const formObject = function (wholeForm, elementArray, submitButton) {
             }
             this.createKeys(element, key, container, optionId);
             if (element.tagName.match(/^(INPUT|SELECT|TEXTAREA)$/)) {
-                console.log("input element", element.tagName);
                 inputsArray.push(element);
             }
             element.createKeys = this.createKeys;

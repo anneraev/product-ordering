@@ -98,7 +98,6 @@ export default {
         //append the elements to the form, create form object, and return an array containing the form itself for appending, as well as a reference to the form object. The form object contains methods for easy reference to any of the form's elements, as well as functions for adding elements.
         const submitButton = this.buildButton(id, "Submit");
         form.appendChild(submitButton);
-        console.log(form);
         const newFormObject = formObjectManager.createFormObject(form, elementsArray, submitButton);
         newFormObject.referenceFormElements();
         const formArray = []

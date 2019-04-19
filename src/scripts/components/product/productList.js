@@ -1,6 +1,8 @@
 import product from "./product.js";
 import bootstrapCreator from "../../global modules/bootstrapUtility/bootstrapCreator.js";
 import domManager from "../../global modules/domManager.js";
+import elementClassManager from "../../global modules/elementClassManager.js";
+import productStyleClassManager from "./productStyleClassManager.js";
 
 export default {
     listProducts: function (products) {
@@ -11,6 +13,8 @@ export default {
             const newProduct = product.createCard(item);
             deck.appendChild(newProduct);
         })
+        const elementObject = elementClassManager.buildElementsObject()
+        productStyleClassManager.setStyles(elementObject);
         domManager.postToDom(deck);
     }
 }

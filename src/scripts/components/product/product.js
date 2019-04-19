@@ -1,5 +1,6 @@
 import bootstrapCreator from "../../global modules/bootstrapUtility/bootstrapCreator"
 import htmlBuilder from "../../global modules/htmlBuilder";
+import elementClassManager from "../../global modules/elementClassManager";
 
 export default {
     createCard: function (product) {
@@ -11,6 +12,8 @@ export default {
         const card = bootstrapCreator.createCard("div", `product_card${product.id}`);
         //product image
         const cardImage = htmlBuilder.elementBuilder("img", `product_card_image${product.id}`)
+        //add card image to elements List for styling.
+        elementClassManager.elementsList.add(cardImage);
         cardImage.setAttribute("src", `${product.image}`)
         cardImage.setAttribute("alt", `Image of ${product.title}`)
         //product title
