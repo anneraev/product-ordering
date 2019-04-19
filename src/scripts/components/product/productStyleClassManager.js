@@ -4,7 +4,7 @@ export default {
     setStyles: function (e) {
         for (let i = 1; i <= 20; i += 1) {
             console.log("run count")
-            const key = `product_card_image${i}`
+            const key = `product_card_image_${i}`
             if (e[key]) {
                 e[key].classList.add("product__image");
             } else {
