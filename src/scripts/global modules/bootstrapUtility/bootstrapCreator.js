@@ -7,9 +7,6 @@ export default {
         const container = htmlBuilder.elementBuilder(type, id);
         container.classList.add("container");
     },
-    createPaddedContainer: function (type, id, width, breakpoint, x) {
-        const container = this.createContainer(type, id);
-    },
     createFluidContainer: function (type, id) {
         const container = htmlBuilder.elementBuilder(type, id);
         container.classList.add("container-fluid");
@@ -31,4 +28,30 @@ export default {
         const column = this.createColumn(type, id, content, value, width, breakpoint)
             column.classList.add(`col-${breakpoint}-${width}`)
     },
+    //adds methods as attributes to the DOM object.
+    addOptionsMethods: function (element){
+        element.addBorder = this.addBorder;
+        element.addBackGround = this.addBackGround;
+        element.addPadding = this.addPadding;
+        element.addMargin = this.addMargin;
+    },
+    addBorder: function () {
+        this.classList.add("border");
+    },
+    addBackGround: function (shade) {
+        this.classList.add(`${shade}`)
+    },
+    addPadding: function (coord, breakpoint, width) {
+        this.classList.add(`p${coord}-${breakpoint}-${width}`)
+    },
+    addMargin: function (coord, breakpoint, width){
+        this.classList.add(`m${coord}-${breakpoint}-${width}`)
+    },
+    alignItems: function (direction) {
+        this.classList.add(`align-items-${direction}`)
+    },
+    alignSelf: function (direction) {
+        this.classList.add(`align-items-${direction}`)
+    }
+
 }

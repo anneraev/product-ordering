@@ -1,4 +1,3 @@
-import bootstrapCreator from "./bootstrapCreator";
 
 export default {
     //ensures this thing is idiot proof and at least puts a bootstrap element on the DOM by defaulting to specific settings.
