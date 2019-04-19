@@ -2,7 +2,7 @@ import htmlBuilder from "../htmlBuilder"
 import elementClassManager from "../elementClassManager";
 //creates HTML with bootstrap classes by calling the HTML builder and assigning the necessary classes.
 //normally called by boostrapManager in order to create complicated boostrap configurations.
-//Because of the larg list of components and other utilities, those will be added here as needed for the time being.
+//Because of the large list of components and other utilities, those will be added here as needed for the time being.
 export default {
     //create bootstrap container.
     createContainer: function (type, id) {
@@ -62,6 +62,18 @@ export default {
         card.appendChild(cardBody);
         elementClassManager.elementsList.add(card);
         return card;
+    },
+    createCardTitle: function (type, id, content) {
+        const cardTitle = htmlBuilder.elementBuilder(type, id, content)
+        card.classList.add("card-title");
+        elementClassManager.elementsList.add(cardTitle);
+        return cardTitle;
+    },
+    createCardText: function (type, id, content) {
+        const cardText = htmlBuilder.elementBuilder(type, id, content)
+        card.classList.add("card-text");
+        elementClassManager.elementsList.add(cardText);
+        return cardText;
     },
     //adds methods as attributes to the DOM object.
     addOptionsMethods: function (element) {

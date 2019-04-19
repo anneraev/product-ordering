@@ -2,7 +2,8 @@ import bootstrapCreator from "../../global modules/bootstrapUtility/bootstrapCre
 
 export default {
     create: function (product) {
-        const card = bootstrapCreator.createCard("div", "thiscardid");
+        //the product's generated object key will be its ID# in the data.
+        const card = bootstrapCreator.createCard("div", `product--card--${product.title}--${product.id}`);
         console.log(card);
     }
 }
