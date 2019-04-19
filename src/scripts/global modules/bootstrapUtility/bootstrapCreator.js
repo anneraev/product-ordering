@@ -65,20 +65,52 @@ export default {
     },
     createCardTitle: function (type, id, content) {
         const cardTitle = htmlBuilder.elementBuilder(type, id, content)
-        card.classList.add("card-title");
+        cardTitle.classList.add("card-title");
+        this.addOptionsMethods(cardTitle);
         elementClassManager.elementsList.add(cardTitle);
         return cardTitle;
     },
     createCardText: function (type, id, content) {
         const cardText = htmlBuilder.elementBuilder(type, id, content)
-        card.classList.add("card-text");
+        cardText.classList.add("card-text");
+        this.addOptionsMethods(cardText);
         elementClassManager.elementsList.add(cardText);
         return cardText;
+    },
+    createListGroup: function (type, id) {
+        const group = htmlBuilder.elementBuilder(type, id)
+        group.classList.add("list-group")
+        this.addOptionsMethods(group);
+        elementClassManager.elementsList.add(group);
+        return group;
+    },
+    createListItem: function (id) {
+        const group = htmlBuilder.elementBuilder("li", id)
+        group.classList.add("list-group-item")
+        this.addOptionsMethods(group);
+        elementClassManager.elementsList.add(group);
+        return group;
+    },
+    createCardImg: function (id, position) {
+        const img = htmlBuilder.elementBuilder(img, id)
+        img.classList.add(`card-img-${position}`)
+        this.addOptionsMethods(img);
+        elementClassManager.elementsList.add(img);
+        return img;
+    },
+    createCardDeck: function (type, id) {
+        const deck = htmlBuilder.elementBuilder(type, id)
+        deck.classList.add("card-deck")
+        this.addOptionsMethods(deck);
+        elementClassManager.elementsList.add(deck);
+        return deck;
     },
     //adds methods as attributes to the DOM object.
     addOptionsMethods: function (element) {
         element.addBorder = this.addBorder;
         element.addBackGround = this.addBackGround;
+        element.addTextType = this.addTextType;
+        element.addTextAlign = this.addTextAlign;
         element.addPadding = this.addPadding;
         element.addMargin = this.addMargin;
         element.alignItems = this.alignItems;
@@ -89,12 +121,19 @@ export default {
         element.automargin = this.automargin;
         element.visible = this.visible;
         element.invisible = this.invisible;
+        element.flushList = this.flushList;
     },
     addBorder: function () {
         this.classList.add("border");
     },
-    addBackGround: function (shade) {
-        this.classList.add(`${shade}`)
+    addBackGround: function (type) {
+        this.classList.add(`bg-${type}`)
+    },
+    addTextType: function (type) {
+        this.classList.add(`text-${type}`)
+    },
+    addTextAlign: function (direction) {
+        this.classList.add(`text-${direction}`)
     },
     addPadding: function (coord, width, breakpoint) {
         if (breakpoint) {
@@ -138,5 +177,8 @@ export default {
     invisible: function () {
         this.classList.add("invisible");
         this.classList.remove("visible");
+    },
+    flushList: function (){
+        this.classList.add("list-group-flush");
     },
 }

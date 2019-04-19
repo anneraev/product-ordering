@@ -5,32 +5,32 @@ let assembledElementsObject
 //the element object created here contains easy references for each element.
 const elementsObject = function (elements) {
     elements.forEach(element => {
-        const id = element.id;
-        const idArray = id.split("--");
-        const key = idArray[3];
+        // const id = element.id;
+        // const idArray = id.split("--");
+        const key = element.id;//idArray[3];
         const container = element.parentNode;
-        let elementKey
-        if (id) {
-            elementKey = `${key}${id}`
-        } else {
-            elementKey = key
-        }
-        this[elementKey] = element;
-        const containerKey = `${elementKey}Container`;
-        const labelKey = `${elementKey}Label`;
+        // let elementKey
+        // if (id) {
+        //     elementKey = `${key}${id}`
+        // } else {
+        //     elementKey = key
+        // }
+        this[key] = element;
+        const containerKey = `${key}Container`;
+        const labelKey = `${key}Label`;
         this[containerKey] = container
         this[labelKey] = this[containerKey].firstChild
-        element.addClass = this.addClass;
-        element.removeClass = this.removeClass;
-        element.toggleClass = this.toggleClass;
+        element.addClasses = this.addClasses;
+        element.removeClasses = this.removeClasses;
+        element.toggleClasses = this.toggleClasses;
     })
-    this.addClass = function (classArray) {
+    this.addClasses = function (classArray) {
         this.classList.add(...classArray);
     };
-    this.removeClass = function (classArray) {
+    this.removeClasses = function (classArray) {
         this.classList.remove(...classArray);
     }
-    this.toggleClass = function (classArray) {
+    this.toggleClasses = function (classArray) {
         this.classList.toggle(...classArray);
     }
 }
