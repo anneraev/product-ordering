@@ -2,11 +2,11 @@
 
 //the element object created here contains easy references for each element.
 elementsObject = function (elements) {
-    const id = element.id;
-    const idArray = id.split("--");
-    const key = idArray[3];
-    const container = element.parentNode;
     elements.forEach(element => {
+        const id = element.id;
+        const idArray = id.split("--");
+        const key = idArray[3];
+        const container = element.parentNode;
         let elementKey
         if (id) {
             elementKey = `${key}${id}`
@@ -34,6 +34,7 @@ elementsObject = function (elements) {
 }
 
 let elementsObject
+let elementsList
 
 export default {
     createElementsObject: function (elements) {
@@ -42,5 +43,13 @@ export default {
     },
     clearElementsObject: function (){
         elementsObject = "";
+    },
+    elementsList: {
+        add: function (element){
+            elementsList.push(element)
+        },
+        remove: function(removeElement){
+            elementsList = elementsList.filter(element => element !== removeElement)
+        },
     }
 }
