@@ -1,55 +1,58 @@
 //creates an object with selected elements, allows for easy class editing among other features.
 
+let assembledElementsObject
+
 //the element object created here contains easy references for each element.
-elementsObject = function (elements) {
-    elements.forEach(element => {
-        const id = element.id;
-        const idArray = id.split("--");
-        const key = idArray[3];
-        const container = element.parentNode;
-        let elementKey
-        if (id) {
-            elementKey = `${key}${id}`
-        } else {
-            elementKey = key
-        }
-        this[elementKey] = element;
-        const containerKey = `${elementKey}Container`;
-        const labelKey = `${elementKey}Label`;
-        this[containerKey] = container
-        this[labelKey] = this[containerKey].firstChild
-        element.addClass = this.addClass;
-        element.removeClass = this.removeClass;
-        element.toggleClass = this.toggleClass;
-    })
-    this.addClass = function (classArray) {
+const elementsObject = function (elements) {
+    this.addClasses = function (classArray) {
         this.classList.add(...classArray);
     };
-    this.removeClass = function (classArray) {
+    this.removeClasses = function (classArray) {
         this.classList.remove(...classArray);
     }
-    this.toggleClass = function (classArray) {
+    this.toggleClasses = function (classArray) {
         this.classList.toggle(...classArray);
-    }
+    },
+    elements.forEach(element => {
+        // const id = element.id;
+        // const idArray = id.split("--");
+        const key = element.id; //idArray[3];
+        const container = element.parentNode;
+        // let elementKey
+        // if (id) {
+        //     elementKey = `${key}${id}`
+        // } else {
+        //     elementKey = key
+        // }
+        this[key] = element;
+        const containerKey = `${key}Container`;
+        const labelKey = `${key}Label`;
+        if (container && container !== null) {
+            this[containerKey] = container
+            this[labelKey] = this[containerKey].firstChild
+        }
+        element.addClasses = this.addClasses;
+        element.removeClasses = this.removeClasses;
+        element.toggleClasses = this.toggleClasses;
+    })
 }
 
-let elementsObject
-let elementsList
+let elementsList = [];
 
 export default {
-    buildElementsObject: function (elements) {
+    buildElementsObject: function () {
         this.clearElementsObject();
-        elementsObject = new elementsObject(elements);
-        return elementsObject;
+        assembledElementsObject = new elementsObject(elementsList);
+        return assembledElementsObject;
     },
-    clearElementsObject: function (){
-        elementsObject = "";
+    clearElementsObject: function () {
+        assembledElementsObject = "";
     },
     elementsList: {
-        add: function (element){
+        add: function (element) {
             elementsList.push(element)
         },
-        remove: function(removeElement){
+        remove: function (removeElement) {
             elementsList = elementsList.filter(element => element !== removeElement)
         },
     }

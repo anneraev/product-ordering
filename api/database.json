@@ -1,0 +1,102 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Funeral Kazoo",
+            "price": 9.99,
+            "description": "Sorry for you loss.",
+            "quantity": 6,
+            "image": "https://scontent.fbna1-2.fna.fbcdn.net/v/t1.0-9/57364750_2318485488202196_2883187425268465664_n.jpg?_nc_cat=1&_nc_oc=AQk1HtUkvE1JJyKR86tFkK1vpjEf1fGvf3Jdt1lH32yQeHt9rnoTM_yijRwUDAYQbe8&_nc_ht=scontent.fbna1-2.fna&oh=447bf54bfa66d4ed3bc45e8fd6bcf422&oe=5D781302"
+        },
+        {
+            "id": 2,
+            "title": "Missouri 1992 Travel Guide",
+            "price": 3.50,
+            "description": "We are EMBARRASSED.",
+            "quantity": 999,
+            "image": "https://scontent.fbna1-1.fna.fbcdn.net/v/t1.0-9/56248031_2297441280306617_5305544474791772160_n.jpg?_nc_cat=104&_nc_oc=AQkMkMWeLhm-O-OxMrWCtG3xziEkN7u8XGNbdlREbP3R3wN-Gr7pkCu9czWwReWMElk&_nc_ht=scontent.fbna1-1.fna&oh=18ce026a342d06b4dca00d16e4593281&oe=5D2A4D04"
+        },
+        {
+            "id": 3,
+            "title": "'Steve Wars': Evil Steve Doll",
+            "price": 22.99,
+            "description": "The galaxy where everyone is named Steve.",
+            "quantity": 1,
+            "image": "https://scontent.fbna1-1.fna.fbcdn.net/v/t1.0-9/54278711_2271267152924030_3065116901282676736_n.jpg?_nc_cat=107&_nc_oc=AQmHa3bUHfv6FUKV9-nueGMO0Jm97X13BfeeGn3s2V8Ewgjf0IbuhYdlOtZIchBOA8w&_nc_ht=scontent.fbna1-1.fna&oh=7ffa2f6c124d271897bb4a49b243ce69&oe=5D2AD664"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "redpilledMAGA"
+        },
+        {
+            "id": 2,
+            "name": "justSteve"
+        },
+        {
+            "id": 3,
+            "name": "Thorax the Destroyer"
+        },
+        {
+            "id": 4,
+            "name": "ObviousPlant"
+        }
+    ],
+    "reviews": [
+        {
+            "id": 1,
+            "userId": 4,
+            "productId": 1,
+            "review": "Anne did not create this. This is the work of Obvious Plant (look for on social media)."
+        },
+        {
+            "id": 2,
+            "userId": 4,
+            "productId": 2,
+            "review": "Anne did not create this. This is the work of Obvious Plant (look for on social media)."
+        },
+        {
+            "id": 3,
+            "userId": 4,
+            "productId": 3,
+            "review": "Anne did not create this. This is the work of Obvious Plant (look for on social media)."
+        },
+        {
+            "id": 4,
+            "userId": 2,
+            "productId": 3,
+            "review": "Finall, a galaxy for me!"
+        },
+        {
+            "id": 5,
+            "userId": 1,
+            "productId": 3,
+            "review": "If this doll says one nice thing about Obama, I'm boycotting."
+        },
+        {
+            "id": 6,
+            "userId": 1,
+            "productId": 2,
+            "review": "I'm sure Missouri would return to its once-great state if we just #buildthewall."
+        },
+        {
+            "id": 7,
+            "userId": 3,
+            "productId": 2,
+            "review": "I shall find this Misery and ELIMINATE IT! EMBARRASSED DENIZENS OF MISERY, BOW BEFORE YOUR CONQUERER!!!!!11"
+        },
+        {
+            "id": 8,
+            "userId": 1,
+            "productId": 1,
+            "review": "Only millenial babies need to be comforted at funerals. Real men grit their teeth through the blaring sound of bagpipes. No safe spaces needed! #MAGA"
+        },
+        {
+            "id": 9,
+            "userId": 2,
+            "productId": 1,
+            "review": "Good construction. A comforting sounds. Makes me wish I had someone, anyone to play it at my funeral..."
+        }
+    ]
+}
